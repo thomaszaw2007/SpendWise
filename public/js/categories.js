@@ -40,7 +40,22 @@ function createCategoryItem(category) {
     );
   }
 
-  item.append(createElement('span', label, 'category-name'), buttons);
+  const info = createElement('div', '', 'category-info');
+  const text = createElement('div');
+  text.append(createElement('span', label, 'category-name'), createElement('small', `${category.transactionCount} transaction${category.transactionCount === 1 ? '' : 's'}`), createElement('small', category.isArchived ? 'Archived' : 'Active'));
+  const colorInput = document.createElement('input');
+  colorInput.type = 'color';
+  colorInput.value = category.color || '#0d9165';
+  colorInput.className = 'category-color-picker';
+  colorInput.setAttribute('aria-label', `Change colour for ${category.name}`);
+  colorInput.title = 'Change category colour';
+  colorInput.addEventListener('change', async () => {
+    if (!await changeCategory(url, 'PATCH', { color: colorInput.value })) {
+      colorInput.value = category.color || '#0d9165';
+    }
+  });
+  info.append(colorInput, text);
+  item.append(info, buttons);
   return item;
 }
 

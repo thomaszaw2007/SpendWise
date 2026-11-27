@@ -20,7 +20,7 @@ const PAGE_SIZE = 10;
 // Dates and times are converted to text in SQL so time zones cannot shift them
 const SELECT_TRANSACTIONS = `
   SELECT t.id, t.type, t.description, t.amount, t.notes,
-         t.category_id AS "categoryId", c.name AS "categoryName",
+         t.category_id AS "categoryId", c.name AS "categoryName", c.color AS "categoryColor",
          to_char(t.transaction_date, 'YYYY-MM-DD') AS date,
          to_char(t.transaction_time, 'HH24:MI') AS time,
          t.payment_method AS "paymentMethod"

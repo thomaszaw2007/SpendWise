@@ -11,7 +11,7 @@ const DUPLICATE_ERROR = 'You already have a category with this name (it may be a
 
 router.get('/', async (req, res) => {
   const result = await pool.query(
-    `SELECT c.id, c.name, c.type, c.is_archived AS "isArchived",
+    `SELECT c.id, c.name, c.type, c.color, c.is_archived AS "isArchived",
             COUNT(t.id)::int AS "transactionCount"
      FROM categories c
      LEFT JOIN transactions t ON t.category_id = c.id
@@ -26,6 +26,8 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   const body = req.body || {};
   const name = cleanText(body.name);
+  const color = body.color === undefined ? '#0d9165' : body.color;
+  if (typeof color !== 'string' || !/^#[0-9a-fA-F]{6}$/.test(color)) return res.status(400).json({ error: 'Choose a valid colour.' });
 
   if (!name || name.length > 50) return res.status(400).json({ error: NAME_ERROR });
   if (!TYPES.includes(body.type)) {
@@ -33,10 +35,11 @@ router.post('/', async (req, res) => {
   }
 
   try {
-    await pool.query('INSERT INTO categories (user_id, name, type) VALUES ($1, $2, $3)', [
+    await pool.query('INSERT INTO categories (user_id, name, type, color) VALUES ($1, $2, $3, $4)', [
       req.session.userId,
       name,
       body.type,
+      color,
     ]);
     res.status(201).json({ message: 'Category added.' });
   } catch (err) {
@@ -54,22 +57,27 @@ router.patch('/:id', async (req, res) => {
   const body = req.body || {};
   let name = null; // null means "keep the current value"
   let isArchived = null;
+  let color = null;
+  if (body.color !== undefined) {
+    if (typeof body.color !== 'string' || !/^#[0-9a-fA-F]{6}$/.test(body.color)) return res.status(400).json({ error: 'Choose a valid colour.' });
+    color = body.color;
+  }
 
   if (body.name !== undefined) {
     name = cleanText(body.name);
     if (!name || name.length > 50) return res.status(400).json({ error: NAME_ERROR });
   }
   if (typeof body.isArchived === 'boolean') isArchived = body.isArchived;
-  if (name === null && isArchived === null) {
+  if (name === null && isArchived === null && color === null) {
     return res.status(400).json({ error: 'Nothing to update.' });
   }
 
   try {
     const result = await pool.query(
       `UPDATE categories
-       SET name = COALESCE($1, name), is_archived = COALESCE($2, is_archived)
-       WHERE id = $3 AND user_id = $4`,
-      [name, isArchived, id, req.session.userId]
+       SET name = COALESCE($1, name), is_archived = COALESCE($2, is_archived), color = COALESCE($3, color)
+       WHERE id = $4 AND user_id = $5`,
+      [name, isArchived, color, id, req.session.userId]
     );
     if (result.rowCount === 0) return res.status(404).json({ error: 'Category not found.' });
     res.json({ message: 'Category updated.' });

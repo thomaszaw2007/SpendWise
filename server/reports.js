@@ -69,7 +69,7 @@ async function getMonthlyTotals(userId, firstDay, numberOfMonths) {
 
 async function getSpendingByCategory(userId, start, end) {
   const result = await pool.query(
-    `SELECT c.name, SUM(t.amount)::numeric(20,2) AS total
+    `SELECT c.name, c.color, SUM(t.amount)::numeric(20,2) AS total
      FROM transactions t
      JOIN categories c ON c.id = t.category_id
      WHERE t.user_id = $1 AND t.type = 'expense'
@@ -85,7 +85,7 @@ async function getSpendingByCategory(userId, start, end) {
 // Spending is calculated on every request, so it is never out of date.
 async function getBudgets(userId, month) {
   const result = await pool.query(
-    `SELECT b.id, b.type, b.category_id AS "categoryId", c.name AS "categoryName",
+    `SELECT b.id, b.type, b.category_id AS "categoryId", c.name AS "categoryName", c.color AS "categoryColor",
             b.amount AS "limit", s.spent,
             (b.amount - s.spent)::numeric(20,2) AS remaining,
             TRUNC(s.spent * 100 / b.amount, 1) AS percent,

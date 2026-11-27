@@ -21,6 +21,12 @@ async function loadHistory() {
 
     // The server may reduce the page number, e.g. after deleting the last row
     currentPage = data.page;
+    document.getElementById('history-count').textContent = data.total;
+    for (const type of ['income', 'expense']) {
+      const cents = data.transactions.filter(t => t.type === type).reduce((sum,t) => sum + BigInt(t.amount.replace('.', '')), 0n);
+      const value = cents.toString().padStart(3, '0');
+      document.getElementById(`history-${type}`).textContent = formatMoney(value.slice(0,-2) + '.' + value.slice(-2));
+    }
 
     const filtering = [...appliedFilters].some(([name, value]) => value && name !== 'sort');
     renderTransactions(

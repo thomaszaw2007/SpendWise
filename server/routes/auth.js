@@ -16,6 +16,8 @@ const registerLimiter = createRateLimiter(10, FIFTEEN_MINUTES);
 // wrong password and does not reveal which emails are registered.
 const dummyHashPromise = bcrypt.hash('no-user-has-this-password', SALT_ROUNDS);
 
+const DEFAULT_COLORS = ['#0d9165', '#0284c7', '#8b5cf6', '#db2777', '#6366f1', '#d97706', '#0891b2', '#dc2626', '#ea580c', '#64748b'];
+
 const DEFAULT_CATEGORIES = {
   expense: [
     'Food & Drinks', 'Transport', 'Groceries', 'Shopping', 'Education',
@@ -48,9 +50,9 @@ router.post('/register', registerLimiter, async (req, res) => {
 
     for (const [type, names] of Object.entries(DEFAULT_CATEGORIES)) {
       await client.query(
-        `INSERT INTO categories (user_id, name, type)
-         SELECT $1, unnest($2::text[]), $3`,
-        [userId, names, type]
+        `INSERT INTO categories (user_id, name, type, color)
+         SELECT $1, name, $3, color FROM unnest($2::text[], $4::text[]) AS defaults(name, color)`,
+        [userId, names, type, names.map((name, i) => DEFAULT_COLORS[i])]
       );
     }
 
