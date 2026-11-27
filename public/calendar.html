@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar - SpendWise</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body class="app-layout">
+  <header class="sidebar" id="sidebar"></header>
+
+  <main class="content">
+    <h1>Calendar and journal</h1>
+    <p id="message" class="message" role="status" hidden></p>
+
+    <section class="card">
+      <div class="page-header">
+        <h2 id="calendar-title">...</h2>
+        <div class="form-actions">
+          <button type="button" class="button button-secondary" id="previous-month">Previous</button>
+          <button type="button" class="button button-secondary" id="current-month">Today</button>
+          <button type="button" class="button button-secondary" id="next-month">Next</button>
+        </div>
+      </div>
+      <div class="calendar-weekdays" aria-hidden="true">
+        <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+      </div>
+      <div class="calendar" id="calendar"></div>
+      <p class="muted legend" id="legend"></p>
+    </section>
+
+    <h2 class="section-title" id="selected-title">...</h2>
+    <div class="summary-grid">
+      <section class="card">
+        <p class="summary-label">Income</p>
+        <p class="summary-value" id="day-income">...</p>
+      </section>
+      <section class="card">
+        <p class="summary-label">Expenses</p>
+        <p class="summary-value" id="day-expense">...</p>
+      </section>
+      <section class="card">
+        <p class="summary-label">Net cash flow</p>
+        <p class="summary-value" id="day-net">...</p>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Transactions</h2>
+      <div id="day-transactions"></div>
+    </section>
+
+    <div class="two-columns">
+      <section class="card">
+        <h2>Add a transaction for this day</h2>
+        <p id="add-message" class="message" role="status" hidden></p>
+        <form id="add-form" class="form-grid"></form>
+      </section>
+
+      <section class="card">
+        <h2>Journal</h2>
+        <p id="journal-message" class="message" role="status" hidden></p>
+        <form id="journal-form">
+          <label for="journal-content">Your reflection (private)</label>
+          <textarea id="journal-content" rows="10" maxlength="5000" required disabled></textarea>
+          <div class="form-actions">
+            <button type="submit" class="button" id="journal-save" disabled>Save entry</button>
+            <button type="button" class="button button-danger" id="journal-delete" hidden>Delete entry</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Previous journal entries</h2>
+      <ul class="plain-list" id="journal-list"></ul>
+      <div class="pagination" id="journal-pagination" hidden>
+        <button type="button" class="button button-secondary" id="journal-newer">Newer</button>
+        <span class="muted" id="journal-page"></span>
+        <button type="button" class="button button-secondary" id="journal-older">Older</button>
+      </div>
+    </section>
+
+    <dialog id="edit-dialog">
+      <h2>Edit transaction</h2>
+      <p id="edit-message" class="message" role="status" hidden></p>
+      <form id="edit-form" class="form-grid"></form>
+    </dialog>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/transaction-form.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script src="/js/journal.js"></script>
+</body>
+</html>
