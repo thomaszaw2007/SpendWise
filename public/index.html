@@ -6,27 +6,22 @@
   <title>SpendWise</title>
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/refinement.css">
+  <script src="/js/theme.js"></script>
 </head>
-<body>
-  <main class="page">
-    <h1>SpendWise</h1>
-    <p class="muted">Personal finance manager</p>
-
-    <section class="card">
-      <h2>Get started</h2>
-      <p class="form-actions">
-        <a class="button" href="/login.html">Log in</a>
-        <a class="button button-secondary" href="/register.html">Create account</a>
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>Setup check</h2>
-      <p id="server-status" class="muted">Checking...</p>
-    </section>
+<body class="landing-page simple-landing">
+  <header class="landing-nav">
+    <a class="public-brand" href="/">SpendWise<span>.</span></a>
+    <nav aria-label="Public navigation"><a href="/login.html">Log in</a></nav>
+  </header>
+  <main class="welcome-panel">
+    <h1>Keep track of your money.</h1>
+    <p>Record daily expenses, manage your budgets and save towards your goals.</p>
+    <div class="form-actions">
+      <a class="button" href="/register.html">Create account</a>
+      <a class="button button-secondary" href="/login.html">Log in</a>
+    </div>
   </main>
-
-  <script src="/js/api.js"></script>
-  <script src="/js/index.js"></script>
+  <footer class="simple-footer">SpendWise · Personal finance tracker</footer>
 </body>
 </html>

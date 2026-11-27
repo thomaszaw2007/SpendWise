@@ -6,13 +6,17 @@
   <title>Create account - SpendWise</title>
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/layout.css">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/refinement.css">
 </head>
-<body>
-  <main class="page">
-    <p class="brand">SpendWise</p>
+<body class="auth-page">
+  <main class="auth-shell">
+    <aside class="auth-art"><a class="public-brand" href="/">SpendWise<span>.</span></a><div><p class="eyebrow">YOUR MONEY, YOUR WAY</p><h2>Make every dollar count.</h2><p>Track daily spending, set meaningful goals and understand your money with confidence.</p><div class="auth-preview"><span>One place for your finances</span><strong>Track. Plan. Grow.</strong><div class="preview-bars"><i></i><i></i><i></i><i></i><i></i></div></div></div><small>Personal finance, made simple.</small></aside>
+    <div class="auth-main">
+    <a class="public-brand" href="/">SpendWise<span>.</span></a>
 
     <section class="card">
-      <h1>Create account</h1>
+      <h1>Create your account</h1><p class="muted">Start building better money habits today.</p>
       <p id="message" class="message" role="status" hidden></p>
 
       <form id="register-form" class="auth-form">
@@ -43,6 +47,7 @@
 
       <p>Already registered? <a href="/login.html">Log in</a></p>
     </section>
+  <a class="back-home" href="/">Back to home</a></div>
   </main>
 
   <script src="/js/api.js"></script>
