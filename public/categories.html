@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories - SpendWise</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body class="app-layout">
+  <header class="sidebar" id="sidebar"></header>
+
+  <main class="content">
+    <h1>Categories</h1>
+    <p class="muted">Archived categories are hidden from new transactions. Past transactions keep them.</p>
+    <p id="message" class="message" role="status" hidden></p>
+
+    <section class="card">
+      <h2>Add a category</h2>
+      <form id="category-form" class="form-grid">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" maxlength="50" required>
+        </div>
+        <div>
+          <label for="type">Type</label>
+          <select id="type" name="type">
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+        </div>
+        <div class="full-width">
+          <button type="submit" class="button">Add category</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="two-columns">
+      <section class="card">
+        <h2>Expense categories</h2>
+        <ul class="category-list" id="expense-categories"></ul>
+      </section>
+      <section class="card">
+        <h2>Income categories</h2>
+        <ul class="category-list" id="income-categories"></ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/categories.js"></script>
+</body>
+</html>
