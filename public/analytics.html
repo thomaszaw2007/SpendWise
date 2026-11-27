@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics - SpendWise</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body class="app-layout">
+  <header class="sidebar" id="sidebar"></header>
+
+  <main class="content">
+    <div class="page-header">
+      <h1>Analytics</h1>
+      <div class="picker">
+        <div>
+          <label for="month">Month</label>
+          <select id="month"></select>
+        </div>
+        <div>
+          <label for="year">Year</label>
+          <select id="year"></select>
+        </div>
+      </div>
+    </div>
+    <p id="message" class="message" role="status" hidden></p>
+
+    <h2 class="section-title" id="period-title">...</h2>
+    <div class="summary-grid">
+      <section class="card">
+        <p class="summary-label">Total income</p>
+        <p class="summary-value" id="total-income">...</p>
+      </section>
+      <section class="card">
+        <p class="summary-label">Total expenses</p>
+        <p class="summary-value" id="total-expense">...</p>
+      </section>
+      <section class="card">
+        <p class="summary-label">Net cash flow</p>
+        <p class="summary-value" id="total-net">...</p>
+      </section>
+      <section class="card">
+        <p class="summary-label">Savings rate</p>
+        <p class="summary-value" id="savings-rate">...</p>
+      </section>
+      <section class="card">
+        <p class="summary-label">Average daily expenses</p>
+        <p class="summary-value" id="average-daily">...</p>
+      </section>
+      <section class="card">
+        <p class="summary-label">Highest spending category</p>
+        <p class="summary-value" id="highest-category">...</p>
+      </section>
+      <section class="card">
+        <p class="summary-label">Highest spending day</p>
+        <p class="summary-value" id="highest-day">...</p>
+      </section>
+    </div>
+
+    <div class="two-columns">
+      <section class="card">
+        <h2>Spending by category</h2>
+        <div class="chart-box"><canvas id="category-chart" role="img" aria-label="Spending by category"></canvas></div>
+        <p class="empty-state" id="category-chart-empty" hidden></p>
+      </section>
+      <section class="card">
+        <h2>Payment methods (expenses)</h2>
+        <div class="chart-box"><canvas id="payment-chart" role="img" aria-label="Payment methods (expenses)"></canvas></div>
+        <p class="empty-state" id="payment-chart-empty" hidden></p>
+      </section>
+    </div>
+      <section class="card">
+        <h2>Daily spending trend</h2>
+        <div class="chart-box"><canvas id="daily-chart" role="img" aria-label="Daily spending trend"></canvas></div>
+        <p class="empty-state" id="daily-chart-empty" hidden></p>
+      </section>
+
+    <h2 class="section-title" id="year-title">...</h2>
+    <div class="two-columns">
+      <section class="card">
+        <h2>Income vs expenses by month</h2>
+        <div class="chart-box"><canvas id="income-chart" role="img" aria-label="Income vs expenses by month"></canvas></div>
+        <p class="empty-state" id="income-chart-empty" hidden></p>
+      </section>
+      <section class="card">
+        <h2>Monthly spending compared with the year before</h2>
+        <div class="chart-box"><canvas id="comparison-chart" role="img" aria-label="Monthly spending compared with the year before"></canvas></div>
+        <p class="empty-state" id="comparison-chart-empty" hidden></p>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Monthly figures and savings rate</h2>
+      <div id="monthly-table"></div>
+    </section>
+  </main>
+
+  <script src="/vendor/chart.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/charts.js"></script>
+  <script src="/js/analytics.js"></script>
+</body>
+</html>
