@@ -1,233 +1,385 @@
 
+
 # SpendWise
 
-SpendWise is a personal finance management web application that I built as a personal project to improve my full-stack development skills.
+SpendWise is a personal finance management web application that I developed to improve my full-stack development skills outside of my school assignments.
 
-The application helps users keep track of their income, expenses, budgets and savings goals in one place. It also provides visual breakdowns of spending habits, making it easier for users to understand and manage their finances.
-
-## About the Project
-
-I am currently pursuing a Diploma in Information Technology at Singapore Polytechnic, with an interest in software engineering and full-stack development.
-
-I wanted to build something outside of my school assignments where I could apply what I have learned while exploring new concepts on my own.
-
-I chose to develop a personal finance application because managing daily expenses and savings is something that is relevant to everyday life. I also wanted to understand how different parts of a web application work together, from the user interface to the backend and database.
-
-SpendWise was developed progressively, starting with basic authentication and transaction management before moving on to more advanced features such as budgets, analytics and savings goals.
+The application allows users to track their income, expenses, budgets and savings goals while understanding their spending habits through financial summaries and charts.
 
 ## Technology Stack
 
-### Frontend
+- Frontend: HTML, CSS, Vanilla JavaScript
+- Backend: Node.js, Express.js
+- Database: PostgreSQL
+- Data Visualisation: Chart.js
+- Testing: Jest, Supertest
+- Version Control: Git, GitHub
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Chart.js
+## About the Project
 
-### Backend
 
-- Node.js
-- Express.js
-- REST API
-- bcrypt
-- Express Session
+## About the Project
 
-### Database
+SpendWise is a personal project that I developed to improve my full-stack development skills outside of my school assignments.
 
-- PostgreSQL
-- pgAdmin
+As a Diploma in Information Technology student at Singapore Polytechnic, I wanted to build a complete web application where I could apply what I have learned in frontend development, backend programming and database management.
 
-### Testing and Development Tools
+I chose personal finance management because keeping track of daily expenses, budgets and savings is something that is relevant to everyday life. I wanted to create an application that makes this process more organised and easier to understand.
 
-- Jest
-- Supertest
-- Git
-- GitHub
-- Visual Studio Code
+The project started with basic authentication and transaction management before gradually expanding into financial analytics, budgeting, savings goals and account management.
 
-## Key Features
+Throughout development, I focused on making the application functional, easy to use and consistent across different pages while learning more about how a full-stack application works.
 
-### User Authentication
+## Table of Contents
 
-- Account registration and login
-- Secure password hashing using bcrypt
-- Session-based authentication
-- Protected pages and API endpoints
-- Individual user accounts and private financial records
+- [Features](#features)
+- [Application Screenshots](#application-screenshots)
+- [Technology Stack](#technology-stack)
+- [System Architecture](#system-architecture)
+- [Database Design](#database-design)
+- [Financial Logic](#financial-logic)
+- [Security and Data Privacy](#security-and-data-privacy)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Demo Account](#demo-account)
+- [Testing](#testing)
+- [Challenges and Lessons Learned](#challenges-and-lessons-learned)
+- [Current Limitations](#current-limitations)
+- [Future Improvements](#future-improvements)
+- [AI-Assisted Development](#ai-assisted-development)
+- [Author](#author)
+
+## Features
 
 ### Dashboard
 
-- Current account balance
-- Available spending balance
-- Reserved savings
-- Daily and monthly financial summaries
-- Recent transactions
-- Budget progress
-- Income and expense charts
-- Savings goal overview
+- View current balance, available funds and reserved savings.
+- Monitor daily and monthly income and expenses.
+- View recent transactions.
+- Track budget progress and savings goals.
+- Visualise financial activity through interactive charts.
+- Select different months and years to view previous financial activity.
 
 ### Transaction Management
 
-- Record daily income and expenses
-- Edit and delete transactions
-- Organise transactions by category
-- Search and filter transaction history
-- Sort transactions by date or amount
-- Pagination
-- Export transaction records to CSV
+- Record income and expenses.
+- Edit and delete existing transactions.
+- Organise transactions using categories.
+- Search transactions by description.
+- Filter by category, transaction type, payment method and date.
+- Sort transactions by date or amount.
+- Browse transaction history with pagination.
+- Export filtered transactions to CSV.
+
+### Daily Entry and Journal
+
+- Quickly record daily financial activity.
+- View income, expenses and net balance for a selected date.
+- Monitor daily budget usage.
+- Write and manage personal daily reflections.
+- Review previous journal entries.
 
 ### Category Management
 
-- Create custom income and expense categories
-- Edit category names and colours
-- Archive unused categories
-- Display category colours in transaction lists and charts
+- Create custom income and expense categories.
+- Edit category names and colours.
+- Archive categories that are no longer needed.
+- Preserve existing transactions when categories are archived.
+- Use category colours in transaction lists and spending charts.
 
-### Spending Calendar and Daily Journal
+### Spending Calendar
 
-- View financial activity through a monthly calendar
-- Track daily income and expenses
-- Identify days with higher spending
-- Write personal daily financial reflections
-- View previous journal entries
+- View financial activity in a monthly calendar.
+- Identify daily income and expenses.
+- Navigate between different months.
+- Review spending patterns and daily budget usage.
 
 ### Budget Management
 
-- Set daily spending limits
-- Create monthly budgets
-- Set budgets for individual spending categories
-- Monitor spending against budget limits
-- Receive warnings when approaching or exceeding a budget
+- Set daily spending limits.
+- Create monthly budgets.
+- Set individual category budgets.
+- Monitor spending through progress indicators.
+- Receive warnings when approaching or exceeding budget limits.
 
-Budgets are intended to help users monitor their spending rather than prevent them from recording transactions.
+Budgets are used to monitor spending rather than restrict users from recording transactions.
 
 ### Financial Analytics
 
-- Income and expense comparisons
-- Spending breakdown by category
-- Daily spending trends
-- Monthly financial summaries
-- Six-month income and expense trends
-- Average daily expenses
-- Savings rate calculations
+- Compare income and expenses.
+- View monthly financial summaries.
+- Analyse spending by category.
+- Visualise daily spending trends.
+- Review six-month financial trends.
+- Calculate average daily expenses and savings rates.
 
 ### Savings Goals
 
-- Create and manage multiple savings goals
-- Set target amounts and optional target dates
-- Add and withdraw savings
-- Track goal progress
-- View contribution and withdrawal history
-- Complete or cancel savings goals
+- Create multiple savings goals.
+- Set target amounts and optional target dates.
+- Add and withdraw savings.
+- Track progress towards individual targets.
+- View contribution and withdrawal history.
+- Complete or cancel savings goals.
+- Display warnings when available funds become negative.
 
-Savings contributions reserve money from the user's existing balance instead of counting as an expense.
+Savings contributions reserve money from the current balance without recording them as expenses.
 
-Users can still record expenses when their available balance becomes negative. A warning is displayed instead of blocking the transaction, allowing users to keep an accurate record of their financial activity.
+### Account Management
 
-### Account Settings
+- Register and log in to individual accounts.
+- Update personal information.
+- Change account passwords.
+- Set or update opening balances.
+- Switch between light, dark and system appearance.
+- Permanently delete an account and its associated records.
 
-- Update personal information
-- Change account password
-- Set or update opening balance
-- Switch between light, dark and system themes
-- Permanently delete an account and its associated data
 
 ## Application Screenshots
 
-Screenshots of the application will be added here.
+The following screenshots showcase the main features of SpendWise in dark mode.
+
+### Landing Page
+
+![Landing Page](docs/screenshots/landing1.jpg)
+
+### Login Page
+
+![Login Page](docs/screenshots/log_in_page.jpg)
+
+### Registration Page
+
+![Registration Page](docs/screenshots/Register_page.jpg)
+
+### Dashboard
+
+![Dashboard](docs/screenshots/Dashboard.jpg)
+
+### Daily Entry
+
+![Daily Entry](docs/screenshots/Daily_Entry.jpg)
+
+### Transaction History
+
+![Transaction History](docs/screenshots/Transactions.jpg)
+
+### Spending Calendar
+
+![Spending Calendar](docs/screenshots/Calendar.jpg)
+
+### Budget Management
+
+![Budget Management](docs/screenshots/Budget.jpg)
+
+### Financial Analytics
+
+![Financial Analytics](docs/screenshots/Analytics.jpg)
+
+### Savings Goals
+
+![Savings Goals](docs/screenshots/Saving_Goals.jpg)
+
+### Category Management
+
+![Category Management](docs/screenshots/Categories.jpg)
+
+### Account Settings
+
+![Account Settings](docs/screenshots/Setting.jpg)
+
+### Responsive Design
+
+SpendWise supports different screen sizes, including mobile devices.
+
+<img src="docs/screenshots/mobile.png" alt="SpendWise Mobile View" width="320">
+
+## Technology Stack
+
+| Area | Technologies |
+| --- | --- |
+| Frontend | HTML5, CSS3, Vanilla JavaScript |
+| Backend | Node.js, Express.js |
+| Database | PostgreSQL |
+| Data Visualisation | Chart.js |
+| Authentication | bcrypt, Express Session |
+| Session Storage | connect-pg-simple |
+| Security | Helmet, CSRF protection, rate limiting |
+| API | REST API, JSON |
+| Testing | Jest, Supertest |
+| Version Control | Git, GitHub |
+| Development Tools | Visual Studio Code, pgAdmin |
+
+I chose vanilla JavaScript instead of a frontend framework because I wanted to strengthen my understanding of JavaScript, DOM manipulation, API requests and how frontend pages communicate with a backend.
 
 ## System Architecture
 
-SpendWise follows a client-server architecture.
-
-The frontend is built using HTML, CSS and vanilla JavaScript. It communicates with the Express backend through REST API requests.
-
-The backend handles authentication, input validation, financial calculations and database operations.
-
-PostgreSQL stores user accounts, transactions, categories, budgets, journal entries, savings goals and sessions.
+SpendWise uses a client-server architecture with a separate frontend, backend and database.
 
 ```mermaid
 flowchart TD
-    A[User Browser] --> B[HTML, CSS and JavaScript]
-    B -->|HTTP Requests| C[Express REST API]
-    C --> D[Authentication and Validation]
-    D --> E[Application Logic]
-    E --> F[PostgreSQL Database]
-    F -->|Query Results| E
-    C -->|JSON Responses| B
+    A["User / Web Browser"] --> B["HTML, CSS and JavaScript"]
+
+    B -->|"HTTP Requests"| C["Express.js REST API"]
+
+    C --> D["Authentication and Middleware"]
+
+    D --> E["Application Routes"]
+
+    E --> F["Financial Logic and Validation"]
+
+    F -->|"Parameterised SQL Queries"| G[("PostgreSQL Database")]
+
+    G -->|"Query Results"| F
+
+    F --> E
+
+    E -->|"JSON Responses"| B
+
+    B --> H["Dashboard, Charts and User Interface"]
 ```
+
+### Frontend
+
+The frontend handles the user interface, forms, navigation, charts and interaction with the backend.
+
+JavaScript is used to send API requests, process responses and update page content dynamically without requiring a full page reload for every operation.
+
+### Backend
+
+The Express backend handles authentication, input validation, session management, financial calculations and database operations.
+
+Routes are separated according to their features to make the code easier to maintain.
+
+### Database
+
+PostgreSQL stores user accounts, transactions, categories, budgets, journal entries, savings goals and login sessions.
+
+Financial summaries are calculated using SQL queries based on the user's stored records.
 
 ## Database Design
 
-The application uses a relational database with the following main tables:
+The application uses a relational database consisting of eight main tables.
 
-| Table | Purpose |
+| Table | Description |
 | --- | --- |
-| users | User accounts and opening balances |
-| sessions | Login sessions |
-| categories | Income and expense categories |
-| transactions | Financial transactions |
-| budgets | Daily, monthly and category budgets |
-| journal_entries | Personal daily reflections |
-| savings_goals | Savings targets and goal information |
-| savings_entries | Savings contributions and withdrawals |
+| `users` | Stores account information, password hashes and opening balances. |
+| `sessions` | Stores login sessions. |
+| `categories` | Stores income and expense categories. |
+| `transactions` | Stores financial transaction records. |
+| `budgets` | Stores daily, monthly and category budgets. |
+| `journal_entries` | Stores personal daily reflections. |
+| `savings_goals` | Stores savings targets and goal information. |
+| `savings_entries` | Stores savings contributions, withdrawals and releases. |
 
-Primary keys, foreign keys and database constraints are used to maintain relationships and help ensure data consistency.
+Primary keys, foreign keys and database constraints are used to maintain relationships and help prevent inconsistent records.
 
 ### Entity Relationship Diagram
 
 ![SpendWise Database ERD](docs/database-erd.png)
 
-## How the Financial Logic Works
+## Financial Logic
 
-One of the main challenges in this project was deciding how income, expenses, balances and savings should work together.
+One of the main parts of developing SpendWise was deciding how transactions, balances, budgets and savings should work together.
 
 ### Current Balance
 
-```
-Current Balance = Opening Balance + Income - Expenses
+```text
+Current Balance = Opening Balance + Total Income - Total Expenses
 ```
 
-### Available Balance
+The current balance represents the user's recorded financial position based on their opening balance and transaction history.
 
-```
+### Available Spending Balance
+
+```text
 Available Balance = Current Balance - Reserved Savings
 ```
 
-For example, if a user has $500 in their account and reserves $200 towards a savings goal, their available spending balance is $300.
+Reserved savings represent money allocated towards savings goals.
 
-Savings contributions do not reduce the current balance because the money still belongs to the user.
+For example:
 
-During development, I originally prevented users from recording expenses if doing so would affect their reserved savings. However, I realised that this made the application less practical, since users should be able to record what actually happens to their money.
+| Description | Amount |
+| --- | ---: |
+| Current balance | S$500.00 |
+| Reserved savings | S$200.00 |
+| Available spending balance | S$300.00 |
 
-I changed this behaviour to allow negative balances and display a warning instead. Savings contributions are still restricted to the available funds and the remaining target amount.
+A savings contribution does not count as an expense because the money still belongs to the user.
+
+### Negative Balances
+
+During development, I initially prevented users from recording expenses if doing so would reduce their balance below their reserved savings.
+
+After testing the feature, I realised that this restriction made the application less practical. A financial tracker should allow users to record what actually happens to their money, even when they overspend.
+
+I changed the implementation to allow negative balances and display a warning instead.
+
+Existing savings records remain unchanged, while additional savings contributions are still restricted by the available balance and the remaining goal target.
+
+### Budget Calculations
+
+Budget progress is calculated based on recorded expenses.
+
+| Budget Usage | Status |
+| --- | --- |
+| Below 80% | Within budget |
+| 80% to below 100% | Approaching limit |
+| 100% | Budget reached |
+| Above 100% | Budget exceeded |
+
+Budget warnings do not prevent users from recording expenses.
+
+### Savings Rate
+
+```text
+Savings Rate = (Income - Expenses) / Income × 100
+```
+
+The savings rate is displayed as unavailable when no income has been recorded for the selected period.
+
+### Financial Data Consistency
+
+Monetary values are stored using PostgreSQL's `NUMERIC` data type to avoid unnecessary floating-point rounding issues.
+
+Database transactions and user-level row locking are used when updating balances and savings allocations to help prevent conflicting operations.
+
+Savings goal progress is calculated from contribution and withdrawal history instead of maintaining a separate manually updated total.
 
 ## Security and Data Privacy
 
-As SpendWise handles personal financial information, I included several security measures throughout the application.
+Since SpendWise handles personal financial information, I included several security measures during development.
 
-- Password hashing using bcrypt
-- PostgreSQL-backed session storage
-- HTTP-only session cookies
-- Secure cookies in production
-- CSRF protection
-- Login and registration rate limiting
-- Server-side input validation
-- Parameterised SQL queries
-- User-specific database queries
-- Helmet security headers
-- Content Security Policy
-- Environment variables for private credentials
-- A dedicated PostgreSQL user with restricted permissions for local development
+| Security Measure | Purpose |
+| --- | --- |
+| Password hashing | Uses bcrypt instead of storing plain-text passwords. |
+| Session authentication | Maintains authenticated user sessions. |
+| PostgreSQL session storage | Stores session information in the database. |
+| HTTP-only cookies | Prevents browser JavaScript from reading session cookies. |
+| Secure production cookies | Restricts session cookies to HTTPS connections in production. |
+| CSRF protection | Helps protect state-changing requests. |
+| Rate limiting | Limits repeated authentication and password verification attempts. |
+| Server-side validation | Checks submitted data before processing it. |
+| Parameterised SQL | Helps prevent SQL injection. |
+| User-specific queries | Restricts financial records to the authenticated user. |
+| Helmet | Provides additional HTTP security headers. |
+| Environment variables | Keeps database credentials and session secrets outside the source code. |
+| Restricted database user | Reduces the application's database privileges during local development. |
 
-Database transactions and row-level locking are also used when updating balances and savings to help prevent conflicting requests from affecting financial records.
+Account deletion requires password verification and an explicit confirmation before removing the user's records.
 
-These measures provide a security foundation for the application, although further testing and improvements would be needed for a real-world financial service.
+Changing an account password also removes other stored sessions belonging to that account.
+
+These measures provide a foundation for application security, although additional security testing would be necessary before using SpendWise for real-world financial services.
 
 ## Project Structure
 
-```
+```text
 SpendWise/
+│
+├── docs/
+│   ├── database-erd.png
+│   └── screenshots/
 │
 ├── public/
 │   ├── css/
@@ -238,7 +390,9 @@ SpendWise/
 │   ├── db/
 │   │   ├── migrations/
 │   │   └── pool.js
+│   │
 │   ├── routes/
+│   │
 │   ├── app.js
 │   ├── server.js
 │   ├── middleware.js
@@ -265,13 +419,13 @@ SpendWise/
 
 ### Prerequisites
 
-Make sure the following are installed:
+The following software is required to run the project locally:
 
 - Node.js
 - npm
 - PostgreSQL
 - Git
-- pgAdmin (optional, for managing the database)
+- pgAdmin (optional)
 
 ### 1. Clone the Repository
 
@@ -288,7 +442,7 @@ npm install
 
 ### 3. Configure Environment Variables
 
-Create a `.env` file using the provided `.env.example`.
+Create a `.env` file based on `.env.example`.
 
 For Windows PowerShell:
 
@@ -296,7 +450,7 @@ For Windows PowerShell:
 Copy-Item .env.example .env
 ```
 
-Configure the following environment variables:
+Configure the following values:
 
 ```env
 DATABASE_URL=postgresql://username:password@localhost:5432/SpendWise
@@ -304,25 +458,27 @@ SESSION_SECRET=your_random_session_secret
 PORT=3000
 ```
 
-Replace the example values with your own database credentials.
+Replace the example credentials with your own PostgreSQL connection details.
 
-If your database password contains special URL characters, make sure they are URL-encoded in the connection string.
+Passwords containing special URL characters must be URL-encoded in the connection string.
 
-To generate a random session secret:
+Generate a random session secret using:
 
 ```bash
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
-The `.env` file should never be committed to GitHub.
+The `.env` file contains private configuration details and should never be committed to GitHub.
 
 ### 4. Set Up the Database
 
 Create a PostgreSQL database named `SpendWise`.
 
-Run the SQL migration files in the following order:
+The database name is case-sensitive when using the provided connection string.
 
-```
+Open the Query Tool in pgAdmin and execute the SQL migration files in the following order:
+
+```text
 001_create_users.sql
 002_create_sessions.sql
 003_create_categories.sql
@@ -334,15 +490,15 @@ Run the SQL migration files in the following order:
 009_category_colours.sql
 ```
 
-All migration files are located in:
+The migration files are located in:
 
-```
+```text
 server/db/migrations/
 ```
 
-Apply each migration once. For an existing database, only apply migrations that have not already been completed.
+Each migration should only be applied once.
 
-The application's database user needs permission to access the relevant tables and sequences.
+The database user configured in `.env` must have the necessary permissions to access the application's tables and sequences.
 
 ### 5. Start the Application
 
@@ -350,128 +506,180 @@ The application's database user needs permission to access the relevant tables a
 npm run dev
 ```
 
-Open the following URL in your browser:
+Open the application in your browser:
 
 http://localhost:3000
 
+You can then register an account and start recording transactions.
+
 ## Demo Account
 
-A demo seed script is included for local testing and demonstrations.
+A demo seed script is included to make local testing and demonstrations easier.
 
-After completing the database setup, run:
+After setting up the database, run:
 
 ```bash
 npm run seed:demo
 ```
 
-This creates a fictional demo account with:
+The script creates a fictional demo account containing:
 
-- Six months of sample financial transactions
-- Income and expense categories
-- Monthly budgets
-- Savings goals
-- Journal entries
-- Financial analytics based on the sample records
+- Six months of sample financial activity.
+- Income and expense transactions.
+- Financial categories.
+- Monthly budgets.
+- Savings goals.
+- Daily journal entries.
 
-The account credentials will be generated by the script and displayed in the terminal.
+The demo account uses the following email:
 
-The script is intended for local development only and does not contain real personal financial information.
+```text
+demo@spendwise.example
+```
+
+A password is generated and displayed in the terminal when the account is created.
+
+The script does not overwrite an existing demo account.
+
+All demo financial records are fictional and are intended for local testing, screenshots and demonstrations only.
+
+The seed script should not be run against a production database.
 
 ## Testing
 
-The project uses Jest and Supertest for automated testing.
+SpendWise uses Jest and Supertest for automated testing.
 
-To run the tests:
+Run the tests with:
 
 ```bash
 npm test
 ```
 
-The automated tests cover areas such as:
+### Automated Test Coverage
 
-- Authentication requirements
-- Protected page redirects
-- CSRF protection
-- Input validation
-- Password requirements
-- Date validation
-- CSV export formatting
-- Negative balance handling
-- Database transaction rollback using mocks
-- User ID scoping in balance queries
+| Area | Tested Behaviour |
+| --- | --- |
+| Authentication | Unauthenticated API requests are rejected. |
+| Protected pages | Unauthenticated users are redirected to the login page. |
+| CSRF protection | Requests without a required token are rejected. |
+| Registration | Password confirmation is validated. |
+| Transactions | Invalid transaction amounts are rejected. |
+| Date validation | Invalid dates and months are rejected. |
+| Financial calculations | Monetary values and signed amounts are validated. |
+| Savings | Invalid contribution amounts are rejected by validation. |
+| Password requirements | Password length and confirmation are validated. |
+| CSV export | Values are escaped and formatted correctly. |
+| Balance handling | Negative available balance values are accepted. |
+| Database transactions | Commit and rollback behaviour is tested using mocks. |
+| User scoping | The correct user ID is passed to balance queries. |
 
-The tests use unauthenticated API requests, validation functions and mocked database operations rather than modifying actual financial records.
+The automated tests use validation functions, unauthenticated API requests and mocked database operations rather than modifying actual financial records.
 
-I also carried out manual testing during development to check how different features worked together and identify issues that were not covered by the automated tests.
+### Manual Testing
+
+Manual testing was also carried out during development to review how different features worked together.
+
+This included:
+
+- Registration, login and logout.
+- Creating, editing and deleting transactions.
+- Updating categories.
+- Creating and monitoring budgets.
+- Savings contributions and withdrawals.
+- Negative balance handling.
+- Financial chart rendering.
+- Account settings.
+- Light and dark appearance.
+- Responsive page layouts.
+
+Automated testing does not currently cover every authenticated database operation or possible user interaction.
 
 ## Challenges and Lessons Learned
 
 ### Connecting the Frontend and Backend
 
-This project helped me gain a better understanding of how frontend JavaScript communicates with an Express backend using API requests.
+One of my main goals was to become more comfortable with building a complete application instead of working on individual frontend or backend exercises.
 
-I became more familiar with handling JSON responses, updating page content dynamically and displaying meaningful messages when an operation fails.
+Through this project, I gained more experience with sending API requests, processing JSON responses, updating the interface dynamically and handling errors between the frontend and backend.
 
-### Database Management
+### Database Design and SQL
 
-Working with PostgreSQL gave me more experience in designing relational tables, writing SQL queries and managing relationships between different types of financial records.
+Working with PostgreSQL helped me improve my understanding of relational databases and the relationships between different types of records.
 
-I also learned more about database transactions and how they can help maintain data consistency.
+I became more familiar with SQL queries, aggregations, constraints and calculating financial summaries directly from stored data.
 
-### Financial Calculations
+I also explored database transactions and row locking to understand how multiple requests can affect data consistency.
 
-Managing the relationship between income, expenses, budgets and savings was one of the more interesting parts of the project.
+### Financial Logic
 
-I had to consider different situations, such as editing previous transactions, withdrawing savings and recording expenses when available funds are insufficient.
+Managing balances and savings was one of the more challenging parts of the project because a single transaction can affect several financial calculations.
+
+I had to consider what should happen when users edit previous transactions, withdraw savings, change their opening balances or spend more than their available funds.
+
+This helped me understand the importance of defining business rules before implementing a feature.
 
 ### Security
 
-Before working on this project, I mainly focused on getting features to work.
+Before developing SpendWise, I mainly focused on getting application features to work.
 
-During development, I gained a better appreciation of why authentication, server-side validation, session management and data privacy are important, especially when an application stores personal information.
+During development, I realised that handling user accounts and private financial records also requires proper authentication, validation, database permissions and session management.
 
-### User Experience
+I learned more about how these security measures work together and why frontend validation alone is not sufficient.
 
-I also learned that a feature can work correctly from a technical perspective but still be inconvenient for the user.
+### Improving the User Experience
 
-For example, changing the savings restriction from an error to a warning made transaction recording more practical without removing savings contribution limits.
+The original savings implementation prevented users from recording expenses when their reserved savings would be affected.
+
+Although the restriction worked technically, it was inconvenient when trying to record actual expenses.
+
+Changing it to a non-blocking warning helped me understand that a technically correct feature is not necessarily the most practical solution for the user.
+
+### Debugging and Testing
+
+Throughout the project, I encountered issues involving database connections, SQL queries, authentication and frontend rendering.
+
+Working through these issues helped me become more comfortable with reading error messages, identifying the source of a problem and testing changes before committing them.
+
+Using Git also helped me keep track of the project's development and separate different feature updates.
 
 ## Current Limitations
 
-SpendWise is a personal learning project and is not intended to replace professional financial software.
+SpendWise is a personal learning project rather than a commercial financial service.
 
-Some current limitations include:
+The current version has the following limitations:
 
-- Supports SGD only
-- No direct bank account integration
-- Transactions must be entered manually
-- No recurring transaction automation
-- No email verification or password reset
-- Transaction summary amounts reflect the current page of results
-- Automated tests do not yet cover every database operation
+- Supports SGD only.
+- Transactions must be entered manually.
+- No direct bank account integration.
+- No recurring transaction automation.
+- No email verification or password recovery.
+- Budget limits do not roll over between months.
+- Transaction summary amounts reflect the current page of results.
+- Automated tests do not cover every database operation.
+- Further security and performance testing would be required for real-world use.
 
 ## Future Improvements
 
-Some features I would like to explore in the future include:
+If I continue developing SpendWise, I would like to explore:
 
-- Recurring income and expenses
-- Receipt uploads
-- Email reminders and budget notifications
-- Password recovery
-- Multiple currency support
-- More detailed financial reports
-- Improved mobile experience
-- Expanded integration and end-to-end testing
+- Recurring income and expense management.
+- Receipt uploads.
+- Budget reminders and notifications.
+- Password recovery and email verification.
+- Multiple currency support.
+- More detailed financial reporting.
+- Improved accessibility.
+- Additional integration and end-to-end testing.
 
 ## AI-Assisted Development
 
-AI tools, including ChatGPT and Claude, were used during the development of this project for planning, coding assistance, debugging, reviewing implementations and exploring different solutions.
+ChatGPT and Claude were used throughout this project for planning, coding assistance, debugging, code review and exploring different implementation approaches.
 
-I also used Base44 as part of the initial interface design exploration.
+Base44 was also used during the initial interface design exploration.
 
-Throughout development, I worked through the suggested implementations, tested features locally and made adjustments based on the application's requirements and my understanding of the code.
+I reviewed and worked with the suggested implementations, configured the development environment, tested features locally and made adjustments based on the project's requirements and usability.
 
-This project was an opportunity for me to explore how AI tools can support software development while still developing my own technical understanding and problem-solving skills.
+The project gave me an opportunity to explore how AI tools can support software development while improving my understanding of the technologies and decisions involved.
 
 ## Author
 
@@ -480,10 +688,12 @@ This project was an opportunity for me to explore how AI tools can support softw
 Diploma in Information Technology  
 Singapore Polytechnic
 
-- GitHub: https://github.com/thomaszaw2007
+Interested in software engineering, full-stack development and building practical applications.
+
+GitHub: [thomaszaw2007](https://github.com/thomaszaw2007)
 
 ## Project Status
 
-The main features have been implemented. Further testing, documentation and deployment preparation are currently in progress.
+The main application features have been implemented and the project is currently being prepared for public deployment.
 
 SpendWise was developed for personal learning and portfolio purposes.
