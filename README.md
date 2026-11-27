@@ -174,7 +174,9 @@ The application uses a relational database with the following main tables:
 
 Primary keys, foreign keys and database constraints are used to maintain relationships and help ensure data consistency.
 
-A detailed entity relationship diagram will be added to the project documentation.
+### Entity Relationship Diagram
+
+![SpendWise Database ERD](docs/database-erd.png)
 
 ## How the Financial Logic Works
 
