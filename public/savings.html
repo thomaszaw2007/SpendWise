@@ -1,105 +1,97 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Savings Goals - SpendWise</title>
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/layout.css">
-</head>
-<body class="app-layout">
-  <header class="sidebar" id="sidebar"></header>
-
-  <main class="content">
-    <h1>Savings goals</h1>
-    <p class="muted">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Savings Goals - SpendWise</title>
+<link href="/css/base.css" rel="stylesheet"/>
+<link href="/css/layout.css" rel="stylesheet"/>
+<script src="/js/theme.js"></script>
+<link href="/css/refinement.css" rel="stylesheet"/>
+<link href="/css/pages.css" rel="stylesheet"/></head>
+<body class="app-layout page-savings">
+<header class="sidebar" id="sidebar"></header>
+<header class="app-topbar"><div class="app-page-title"><strong>Savings Goals</strong><small>Money set aside on purpose</small></div><div class="topbar-actions"><a class="button" href="/daily.html">+ Quick Add</a></div></header><main class="content">
+<h1>Reserved for later</h1><p class="page-subtitle">Make progress towards what matters to you.</p>
+<p class="muted">
       Money you put into a goal is reserved, not spent. It stays in your balance but is no longer
       available to spend.
     </p>
-    <p id="message" class="message" role="status" hidden></p>
-
-    <div class="summary-grid">
-      <section class="card">
-        <p class="summary-label">Current total balance</p>
-        <p class="summary-value" id="balance">...</p>
-      </section>
-      <section class="card">
-        <p class="summary-label">Total reserved savings</p>
-        <p class="summary-value" id="reserved">...</p>
-      </section>
-      <section class="card">
-        <p class="summary-label">Available spending balance</p>
-        <p class="summary-value" id="available">...</p>
-      </section>
-      <section class="card">
-        <p class="summary-label">Active goals</p>
-        <p class="summary-value" id="active-count">...</p>
-      </section>
-      <section class="card">
-        <p class="summary-label">Completed goals</p>
-        <p class="summary-value" id="completed-count">...</p>
-      </section>
-    </div>
-
-    <section class="card">
-      <h2>New savings goal</h2>
-      <form id="goal-form" class="form-grid"></form>
-    </section>
-
-    <section class="card">
-      <h2>Active goals</h2>
-      <div id="active-goals"></div>
-    </section>
-
-    <section class="card">
-      <h2>Completed goals</h2>
-      <div id="completed-goals"></div>
-    </section>
-
-    <section class="card">
-      <h2>Cancelled goals</h2>
-      <div id="cancelled-goals"></div>
-    </section>
-
-    <dialog id="entry-dialog">
-      <h2 id="entry-title"></h2>
-      <p id="entry-hint" class="muted"></p>
-      <p id="entry-message" class="message" role="status" hidden></p>
-      <form id="entry-form" class="form-grid">
-        <div>
-          <label for="entry-amount">Amount (SGD)</label>
-          <input id="entry-amount" name="amount" inputmode="decimal" placeholder="0.00"
-                 pattern="[0-9]{1,10}(\.[0-9]{1,2})?" title="A number with up to 2 decimal places" required>
-        </div>
-        <div>
-          <label for="entry-note">Note (optional)</label>
-          <input id="entry-note" name="note" maxlength="200">
-        </div>
-        <div class="full-width form-actions">
-          <button type="submit" class="button">Save</button>
-          <button type="button" class="button button-secondary" data-close-dialog>Close</button>
-        </div>
-      </form>
-    </dialog>
-
-    <dialog id="edit-dialog">
-      <h2>Edit savings goal</h2>
-      <p id="edit-message" class="message" role="status" hidden></p>
-      <form id="edit-form" class="form-grid"></form>
-    </dialog>
-
-    <dialog id="history-dialog">
-      <h2 id="history-title"></h2>
-      <p id="history-message" class="message" role="status" hidden></p>
-      <div id="history-list"></div>
-      <div class="form-actions">
-        <button type="button" class="button button-secondary" data-close-dialog>Close</button>
-      </div>
-    </dialog>
-  </main>
-
-  <script src="/js/api.js"></script>
-  <script src="/js/common.js"></script>
-  <script src="/js/savings.js"></script>
+<p class="message" hidden="" id="message" role="status"></p>
+<div class="summary-grid">
+<section class="card">
+<p class="summary-label">Current total balance</p>
+<p class="summary-value" id="balance">...</p>
+</section>
+<section class="card">
+<p class="summary-label">Total reserved savings</p>
+<p class="summary-value" id="reserved">...</p>
+</section>
+<section class="card">
+<p class="summary-label">Available spending balance</p>
+<p class="summary-value" id="available">...</p>
+</section>
+<section class="card">
+<p class="summary-label">Active goals</p>
+<p class="summary-value" id="active-count">...</p>
+</section>
+<section class="card">
+<p class="summary-label">Completed goals</p>
+<p class="summary-value" id="completed-count">...</p>
+</section>
+</div>
+<section class="card create-goal-panel">
+<h2>Create goal</h2>
+<form class="form-grid" id="goal-form"></form>
+</section>
+<section class="goal-section">
+<h2>Active goals</h2>
+<div id="active-goals"></div>
+</section>
+<section class="goal-section">
+<h2>Completed goals</h2>
+<div id="completed-goals"></div>
+</section>
+<section class="goal-section">
+<h2>Cancelled goals</h2>
+<div id="cancelled-goals"></div>
+</section>
+<dialog id="entry-dialog">
+<h2 id="entry-title"></h2>
+<p class="muted" id="entry-hint"></p>
+<p class="message" hidden="" id="entry-message" role="status"></p>
+<form class="form-grid" id="entry-form">
+<div>
+<label for="entry-amount">Amount (SGD)</label>
+<input id="entry-amount" inputmode="decimal" name="amount" pattern="[0-9]{1,10}(\.[0-9]{1,2})?" placeholder="0.00" required="" title="A number with up to 2 decimal places"/>
+</div>
+<div>
+<label for="entry-note">Note (optional)</label>
+<input id="entry-note" maxlength="200" name="note"/>
+</div>
+<div class="full-width form-actions">
+<button class="button" type="submit">Save</button>
+<button class="button button-secondary" data-close-dialog="" type="button">Close</button>
+</div>
+</form>
+</dialog>
+<dialog id="edit-dialog">
+<h2>Edit savings goal</h2>
+<p class="message" hidden="" id="edit-message" role="status"></p>
+<form class="form-grid" id="edit-form"></form>
+</dialog>
+<dialog id="history-dialog">
+<h2 id="history-title"></h2>
+<p class="message" hidden="" id="history-message" role="status"></p>
+<div id="history-list"></div>
+<div class="form-actions">
+<button class="button button-secondary" data-close-dialog="" type="button">Close</button>
+</div>
+</dialog>
+</main>
+<script src="/js/api.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/savings.js"></script>
 </body>
 </html>

@@ -1,110 +1,105 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Settings - SpendWise</title>
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/layout.css">
-</head>
-<body class="app-layout">
-  <header class="sidebar" id="sidebar"></header>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - SpendWise</title>
+<link href="/css/base.css" rel="stylesheet"/>
+<link href="/css/layout.css" rel="stylesheet"/>
+<script src="/js/theme.js"></script>
+<link href="/css/refinement.css" rel="stylesheet"/>
+<link href="/css/pages.css" rel="stylesheet"/></head>
+<body class="app-layout page-settings">
+<header class="sidebar" id="sidebar"></header>
+<header class="app-topbar"><div class="app-page-title"><strong>Settings</strong><small>Profile and preferences</small></div><div class="topbar-actions"><a class="button" href="/daily.html">+ Quick Add</a></div></header><main class="content">
 
-  <main class="content">
-    <h1>Settings</h1>
-    <p id="message" class="message" role="status" hidden></p>
-
-    <section class="card">
-      <h2>Account information</h2>
-      <dl class="info-list">
-        <div><dt>Account created</dt><dd id="created-date">...</dd></div>
-        <div><dt>Currency</dt><dd id="currency">...</dd></div>
-        <div><dt>Time zone</dt><dd id="time-zone">...</dd></div>
-      </dl>
-    </section>
-
-    <section class="card">
-      <h2>Profile</h2>
-      <p id="profile-message" class="message" role="status" hidden></p>
-      <form id="profile-form" class="form-grid">
-        <div>
-          <label for="full-name">Full name</label>
-          <input id="full-name" name="fullName" maxlength="100" autocomplete="name" required>
-        </div>
-        <div>
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" maxlength="254" autocomplete="email" required>
-        </div>
-        <div class="full-width">
-          <button type="submit" class="button">Save profile</button>
-        </div>
-      </form>
-    </section>
-
-    <section class="card">
-      <h2>Opening balance</h2>
-      <p class="muted">
+<p class="message" hidden="" id="message" role="status"></p>
+<div class="settings-columns"><div class="settings-main"><section class="card">
+<h2>Personal information</h2>
+<p class="message" hidden="" id="profile-message" role="status"></p>
+<form class="form-grid" id="profile-form">
+<div>
+<label for="full-name">Full name</label>
+<input autocomplete="name" id="full-name" maxlength="100" name="fullName" required=""/>
+</div>
+<div>
+<label for="email">Email address</label>
+<input autocomplete="email" id="email" maxlength="254" name="email" required="" type="email"/>
+</div>
+<div class="full-width">
+<button class="button" type="submit">Save profile</button>
+</div>
+</form>
+</section><section class="card">
+<h2>Preferences</h2>
+<dl class="info-list">
+<div><dt>Account created</dt><dd id="created-date">...</dd></div>
+<div><dt>Currency</dt><dd id="currency">...</dd></div>
+<div><dt>Time zone</dt><dd id="time-zone">...</dd></div>
+</dl>
+<div class="settings-theme"><label>Theme</label><div class="theme-switch"><button class="button button-secondary" data-public-theme="" data-theme-choice="light" type="button">Light</button><button class="button button-secondary" data-public-theme="" data-theme-choice="system" type="button">System</button><button class="button button-secondary" data-public-theme="" data-theme-choice="dark" type="button">Dark</button></div></div><section class="card">
+<h2>Opening balance</h2>
+<p class="muted">
         The money you had before your first recorded transaction. Current balance = opening balance
         + income - expenses. It cannot be lowered below the money reserved for savings goals.
       </p>
-      <p id="balance-message" class="message" role="status" hidden></p>
-      <form id="balance-form" class="amount-form">
-        <div>
-          <label for="opening-balance">Opening balance (SGD)</label>
-          <input id="opening-balance" name="openingBalance" inputmode="decimal" placeholder="0.00"
-                 pattern="-?[0-9]{1,10}(\.[0-9]{1,2})?" title="A number with up to 2 decimal places" required>
-        </div>
-        <button type="submit" class="button">Save opening balance</button>
-      </form>
-    </section>
-
-    <section class="card">
-      <h2>Change password</h2>
-      <p id="password-message" class="message" role="status" hidden></p>
-      <form id="password-form" class="form-grid">
-        <div class="full-width">
-          <label for="current-password">Current password</label>
-          <input type="password" id="current-password" name="currentPassword" autocomplete="current-password" required>
-        </div>
-        <div>
-          <label for="new-password">New password (8 to 72 characters)</label>
-          <input type="password" id="new-password" name="newPassword" minlength="8" maxlength="72" autocomplete="new-password" required>
-        </div>
-        <div>
-          <label for="confirm-password">Confirm new password</label>
-          <input type="password" id="confirm-password" name="confirmPassword" minlength="8" maxlength="72" autocomplete="new-password" required>
-        </div>
-        <div class="full-width">
-          <button type="submit" class="button">Change password</button>
-        </div>
-      </form>
-    </section>
-
-    <section class="card danger-zone">
-      <h2>Danger zone</h2>
-      <p>
+<p class="message" hidden="" id="balance-message" role="status"></p>
+<form class="amount-form" id="balance-form">
+<div>
+<label for="opening-balance">Opening balance (SGD)</label>
+<input id="opening-balance" inputmode="decimal" name="openingBalance" pattern="-?[0-9]{1,10}(\.[0-9]{1,2})?" placeholder="0.00" required="" title="A number with up to 2 decimal places"/>
+</div>
+<button class="button" type="submit">Save opening balance</button>
+</form>
+</section></section><section class="card"><h2>Data</h2><p class="muted">Export your transaction records as a spreadsheet-ready CSV.</p><a class="button button-secondary" href="/api/transactions/export">Export CSV</a></section><section class="card">
+<h2>Change password</h2>
+<p class="message" hidden="" id="password-message" role="status"></p>
+<form class="form-grid" id="password-form">
+<div class="full-width">
+<label for="current-password">Current password</label>
+<input autocomplete="current-password" id="current-password" name="currentPassword" required="" type="password"/>
+</div>
+<div>
+<label for="new-password">New password (8 to 72 characters)</label>
+<input autocomplete="new-password" id="new-password" maxlength="72" minlength="8" name="newPassword" required="" type="password"/>
+</div>
+<div>
+<label for="confirm-password">Confirm new password</label>
+<input autocomplete="new-password" id="confirm-password" maxlength="72" minlength="8" name="confirmPassword" required="" type="password"/>
+</div>
+<div class="full-width">
+<button class="button" type="submit">Change password</button>
+</div>
+</form>
+</section></div><div class="settings-side"><section class="card"><h2>About SpendWise</h2><p class="muted">Your records are stored in your private account in PostgreSQL.</p></section><section class="card danger-zone">
+<h2>Danger zone</h2>
+<p>
         Deleting your account permanently removes your transactions, categories, budgets, journal
         entries and savings goals. This cannot be undone. Export your transactions first if you want a copy.
       </p>
-      <p id="danger-message" class="message" role="status" hidden></p>
-      <form id="delete-form" class="form-grid">
-        <div>
-          <label for="delete-password">Current password</label>
-          <input type="password" id="delete-password" name="currentPassword" autocomplete="current-password" required>
-        </div>
-        <div>
-          <label for="delete-confirmation">Type DELETE to confirm</label>
-          <input id="delete-confirmation" name="confirmation" autocomplete="off" required>
-        </div>
-        <div class="full-width">
-          <button type="submit" class="button button-danger">Delete my account</button>
-        </div>
-      </form>
-    </section>
-  </main>
+<p class="message" hidden="" id="danger-message" role="status"></p>
+<form class="form-grid" id="delete-form">
+<div>
+<label for="delete-password">Current password</label>
+<input autocomplete="current-password" id="delete-password" name="currentPassword" required="" type="password"/>
+</div>
+<div>
+<label for="delete-confirmation">Type DELETE to confirm</label>
+<input autocomplete="off" id="delete-confirmation" name="confirmation" required=""/>
+</div>
+<div class="full-width">
+<button class="button button-danger" type="submit">Delete my account</button>
+</div>
+</form>
+</section></div></div>
 
-  <script src="/js/api.js"></script>
-  <script src="/js/common.js"></script>
-  <script src="/js/settings.js"></script>
+
+
+
+</main>
+<script src="/js/api.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/settings.js"></script>
 </body>
 </html>

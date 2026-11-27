@@ -1,64 +1,61 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily entry - SpendWise</title>
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/layout.css">
-</head>
-<body class="app-layout">
-  <header class="sidebar" id="sidebar"></header>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daily entry - SpendWise</title>
+<link href="/css/base.css" rel="stylesheet"/>
+<link href="/css/layout.css" rel="stylesheet"/>
+<script src="/js/theme.js"></script>
+<link href="/css/refinement.css" rel="stylesheet"/>
+<link href="/css/pages.css" rel="stylesheet"/></head>
+<body class="app-layout page-daily">
+<header class="sidebar" id="sidebar"></header>
+<header class="app-topbar"><div class="app-page-title"><strong>Daily Entry</strong><small>Log today's spending</small></div><div class="topbar-actions"><a class="button" href="/daily.html">+ Quick Add</a></div></header><main class="content">
+<div class="page-header card day-selector">
+<div><h1>Selected day</h1><p class="page-subtitle">Record income and expenses</p></div>
+<div>
+<label for="day">Showing date</label>
+<input id="day" min="2000-01-01" type="date"/>
+</div>
+</div>
+<p class="message" hidden="" id="message" role="status"></p>
+<div class="summary-grid">
+<section class="card">
+<p class="summary-label">Income for the day</p>
+<p class="summary-value" id="day-income">...</p>
+</section>
+<section class="card">
+<p class="summary-label">Expenses for the day</p>
+<p class="summary-value" id="day-expense">...</p>
+</section>
+<section class="card">
+<p class="summary-label">Net cash flow</p>
+<p class="summary-value" id="day-net">...</p>
+</section>
+</div>
+<section class="card daily-budget-card" id="daily-budget-preview"><h2>Daily spending limit</h2><div class="muted" id="daily-budget-status">Loading…</div></section><div class="daily-columns"><section class="card">
+<h2>Quick entry</h2>
+<p class="message" hidden="" id="add-message" role="status"></p>
+<form class="form-grid" id="add-form"></form>
+</section><div class="daily-right"><section class="card">
+<div class="page-header">
+<h2>Day timeline</h2>
+<a href="/calendar.html" id="journal-link">Open journal for this day</a>
+</div>
+<div id="day-transactions"></div>
+</section><section class="card"><h2>Daily reflection</h2><p class="muted">A short note on how today went.</p><p class="message" hidden="" id="daily-note-message" role="status"></p><form id="daily-note-form"><label for="daily-note">Your reflection (private)</label><textarea disabled="" id="daily-note" maxlength="5000" placeholder="What went well today?" required="" rows="3"></textarea><div class="form-actions"><button class="button" disabled="" id="daily-note-save">Save note</button></div></form></section></div></div>
 
-  <main class="content">
-    <div class="page-header">
-      <h1>Daily entry</h1>
-      <div>
-        <label for="day">Showing date</label>
-        <input type="date" id="day" min="2000-01-01">
-      </div>
-    </div>
-    <p id="message" class="message" role="status" hidden></p>
-
-    <div class="summary-grid">
-      <section class="card">
-        <p class="summary-label">Income for the day</p>
-        <p class="summary-value" id="day-income">...</p>
-      </section>
-      <section class="card">
-        <p class="summary-label">Expenses for the day</p>
-        <p class="summary-value" id="day-expense">...</p>
-      </section>
-      <section class="card">
-        <p class="summary-label">Net cash flow</p>
-        <p class="summary-value" id="day-net">...</p>
-      </section>
-    </div>
-
-    <section class="card">
-      <h2>Add a transaction</h2>
-      <p id="add-message" class="message" role="status" hidden></p>
-      <form id="add-form" class="form-grid"></form>
-    </section>
-
-    <section class="card">
-      <div class="page-header">
-        <h2>Transactions on this day</h2>
-        <a id="journal-link" href="/calendar.html">Open journal for this day</a>
-      </div>
-      <div id="day-transactions"></div>
-    </section>
-
-    <dialog id="edit-dialog">
-      <h2>Edit transaction</h2>
-      <p id="edit-message" class="message" role="status" hidden></p>
-      <form id="edit-form" class="form-grid"></form>
-    </dialog>
-  </main>
-
-  <script src="/js/api.js"></script>
-  <script src="/js/common.js"></script>
-  <script src="/js/transaction-form.js"></script>
-  <script src="/js/daily.js"></script>
+<dialog id="edit-dialog">
+<h2>Edit transaction</h2>
+<p class="message" hidden="" id="edit-message" role="status"></p>
+<form class="form-grid" id="edit-form"></form>
+</dialog>
+</main>
+<script src="/js/api.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/transaction-form.js"></script>
+<script src="/js/daily.js"></script>
 </body>
 </html>

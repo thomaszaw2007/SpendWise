@@ -85,7 +85,9 @@ function createGoalCard(goal) {
     bar.max = 100;
     bar.value = Number(goal.percent);
     bar.setAttribute('aria-label', `${goal.name}: ${goal.percent}% saved`);
-    card.append(bar);
+    const line = createElement('div', '', 'goal-amount-line');
+    line.append(createElement('strong', formatMoney(goal.saved)), createElement('span', `${goal.percent}%`));
+    card.append(line, bar);
 
     details.unshift(`Saved ${formatMoney(goal.saved)} (${goal.percent}%)`);
     details.push(`Remaining ${formatMoney(goal.remaining)}`);
