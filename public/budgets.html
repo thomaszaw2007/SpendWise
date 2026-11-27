@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budgets - SpendWise</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body class="app-layout">
+  <header class="sidebar" id="sidebar"></header>
+
+  <main class="content">
+    <div class="page-header">
+      <h1>Budgets</h1>
+      <div class="picker">
+        <div>
+          <label for="month">Month</label>
+          <select id="month"></select>
+        </div>
+        <div>
+          <label for="year">Year</label>
+          <select id="year"></select>
+        </div>
+      </div>
+    </div>
+    <p class="muted">Only expenses count. Budgets never block a transaction and do not roll over.</p>
+    <p id="message" class="message" role="status" hidden></p>
+
+    <section class="card">
+      <h2>Daily spending limit</h2>
+      <p class="muted">One limit for every day. The progress shows today.</p>
+      <div id="daily-budget"></div>
+    </section>
+
+    <section class="card">
+      <h2 id="monthly-title">Monthly budget</h2>
+      <div id="monthly-budget"></div>
+    </section>
+
+    <section class="card">
+      <h2 id="category-title">Category budgets</h2>
+      <form id="category-budget-form" class="form-grid">
+        <div>
+          <label for="category">Expense category</label>
+          <select id="category" name="categoryId" required></select>
+        </div>
+        <div>
+          <label for="category-amount">Budget (SGD)</label>
+          <input id="category-amount" name="amount" inputmode="decimal" placeholder="0.00" required>
+        </div>
+        <div class="full-width">
+          <button type="submit" class="button">Add category budget</button>
+        </div>
+      </form>
+      <div id="category-budgets"></div>
+    </section>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/budgets.js"></script>
+</body>
+</html>
