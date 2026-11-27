@@ -25,6 +25,11 @@ if (!process.env.SESSION_SECRET) {
 
 const app = express();
 
+// Trust the hosting provider's reverse proxy in production
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+}
+
 // helmet adds security headers, including a Content Security Policy (CSP).
 // The default CSP only allows scripts from our own site, so inline <script>
 // tags and onclick="..." attributes will not work. Use .js files instead.
