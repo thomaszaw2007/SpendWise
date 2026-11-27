@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions - SpendWise</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body class="app-layout">
+  <header class="sidebar" id="sidebar"></header>
+
+  <main class="content">
+    <h1>Transactions</h1>
+    <p id="message" class="message" role="status" hidden></p>
+
+    <section class="card">
+      <h2>Search and filter</h2>
+      <form id="filter-form" class="form-grid">
+        <div>
+          <label for="search">Description</label>
+          <input type="search" id="search" name="search" maxlength="120">
+        </div>
+        <div>
+          <label for="filter-type">Type</label>
+          <select id="filter-type" name="type">
+            <option value="">All types</option>
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+        </div>
+        <div>
+          <label for="filter-category">Category</label>
+          <select id="filter-category" name="categoryId">
+            <option value="">All categories</option>
+          </select>
+        </div>
+        <div>
+          <label for="filter-payment">Payment method</label>
+          <select id="filter-payment" name="paymentMethod">
+            <option value="">All methods</option>
+          </select>
+        </div>
+        <div>
+          <label for="from">From date</label>
+          <input type="date" id="from" name="from">
+        </div>
+        <div>
+          <label for="to">To date</label>
+          <input type="date" id="to" name="to">
+        </div>
+        <div>
+          <label for="sort">Sort by</label>
+          <select id="sort" name="sort">
+            <option value="date_desc">Newest first</option>
+            <option value="date_asc">Oldest first</option>
+            <option value="amount_desc">Largest amount</option>
+            <option value="amount_asc">Smallest amount</option>
+          </select>
+        </div>
+        <div class="full-width form-actions">
+          <button type="submit" class="button">Apply</button>
+          <button type="reset" class="button button-secondary">Clear filters</button>
+          <button type="button" class="button button-secondary" id="export-button">Export CSV</button>
+        </div>
+        <p class="full-width muted summary-note">
+          Export CSV downloads every transaction that matches the applied filters, not just this page.
+          Clear the filters to export everything.
+        </p>
+      </form>
+    </section>
+
+    <section class="card">
+      <div id="history"></div>
+      <div class="pagination" id="pagination" hidden>
+        <button type="button" class="button button-secondary" id="previous-page">Previous</button>
+        <span id="page-info" class="muted"></span>
+        <button type="button" class="button button-secondary" id="next-page">Next</button>
+      </div>
+    </section>
+
+    <dialog id="edit-dialog">
+      <h2>Edit transaction</h2>
+      <p id="edit-message" class="message" role="status" hidden></p>
+      <form id="edit-form" class="form-grid"></form>
+    </dialog>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/transaction-form.js"></script>
+  <script src="/js/transactions.js"></script>
+</body>
+</html>
