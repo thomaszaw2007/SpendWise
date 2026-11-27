@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - SpendWise</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body class="app-layout">
+  <header class="sidebar" id="sidebar"></header>
+  <main class="content dashboard">
+    <div class="page-header dashboard-heading">
+      <div><h1>Dashboard</h1><p class="muted">Your money at a glance.</p></div>
+      <div class="dashboard-controls">
+        <div class="picker">
+          <div><label for="month">Month</label><select id="month"></select></div>
+          <div><label for="year">Year</label><select id="year"></select></div>
+        </div>
+        <a class="button" href="/daily.html">+ Add transaction</a>
+      </div>
+    </div>
+    <p id="message" class="message" role="status" hidden></p>
+    <h2 id="month-title" class="dashboard-period">Selected month</h2>
+    <div class="dashboard-summary">
+      <section class="card balance-card">
+        <p class="summary-label">Total balance · All time</p>
+        <p class="summary-value" id="balance">...</p>
+        <div class="balance-details">
+          <div><p class="summary-label">Available to spend</p><p class="summary-value" id="available">...</p></div>
+          <div><p class="summary-label">Reserved savings</p><p class="summary-value" id="reserved">...</p></div>
+        </div>
+        <p class="summary-note"><span id="goal-counts"></span> <a href="/savings.html">Savings goals</a></p>
+      </section>
+      <section class="card metric"><p class="summary-label">Monthly income</p><p class="summary-value" id="month-income">...</p><p class="summary-note">Selected month</p></section>
+      <section class="card metric"><p class="summary-label">Monthly expenses</p><p class="summary-value" id="month-expense">...</p><p class="summary-note">Selected month</p></section>
+      <section class="card metric"><p class="summary-label">Today's spending</p><p class="summary-value" id="today-expense">...</p><p class="summary-note">Income today: <span id="today-income">...</span></p></section>
+      <section class="card metric"><p class="summary-label">Monthly net cash flow</p><p class="summary-value" id="month-net">...</p><p class="summary-note">Income minus expenses</p></section>
+    </div>
+    <div class="dashboard-grid">
+      <section class="card dashboard-wide">
+        <div class="page-header"><div><h2>Income vs expenses</h2><p class="muted">Six months ending with selected month</p></div><a href="/analytics.html">Analytics</a></div>
+        <div class="chart-box"><canvas id="trend-chart" role="img" aria-label="Income vs expenses (6 months)"></canvas></div>
+        <p class="empty-state" id="trend-chart-empty" hidden></p>
+      </section>
+      <section class="card">
+        <h2>Spending breakdown</h2><p class="muted">Selected month</p>
+        <div class="chart-box category-chart-box"><canvas id="category-chart" role="img" aria-label="Spending by category"></canvas></div>
+        <div id="category-list"></div>
+      </section>
+      <section class="card dashboard-wide">
+        <div class="page-header"><h2>Budget progress</h2><a href="/budgets.html">Manage budgets</a></div>
+        <div id="budget-progress"></div>
+      </section>
+      <section class="card dashboard-insight">
+        <p class="summary-label">Average daily spending</p><p class="summary-value" id="month-average">...</p>
+        <p class="summary-note">For the selected month.</p><a href="/analytics.html">Explore analytics</a>
+      </section>
+      <section class="card dashboard-wide">
+        <div class="page-header"><div><h2>Recent transactions</h2><p class="muted">All dates</p></div><a href="/transactions.html">View all</a></div>
+        <div id="recent-transactions"></div>
+      </section>
+      <section class="card dashboard-insight"><h2>Savings goals</h2><p class="muted">Track your targets and manage reserved money.</p><a class="button" href="/savings.html">View savings goals</a></section>
+    </div>
+  </main>
+  <script src="/vendor/chart.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/charts.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
