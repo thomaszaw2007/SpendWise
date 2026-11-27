@@ -15,6 +15,14 @@ The application allows users to track their income, expenses, budgets and saving
 - Testing: Jest, Supertest
 - Version Control: Git, GitHub
 
+## Live Demo
+
+[Try SpendWise](https://spendwise-do7f.onrender.com)
+
+Hosted on Render with a Neon PostgreSQL database.
+
+Note: The initial page load may take 50 seconds or longer due to free hosting limitations. Please use fictional financial data when testing.
+
 ## About the Project
 
 
