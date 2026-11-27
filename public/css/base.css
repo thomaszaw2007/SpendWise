@@ -2,36 +2,198 @@
    Every other stylesheet uses var(--name) instead of fixed colours,
    so dark mode only needs to swap these values. */
 :root {
-  --color-background: #f5f7fa;
+  --color-background: #f8fafc;
   --color-surface: #ffffff;
-  --color-text: #1f2933;
-  --color-text-muted: #52606d;
-  --color-primary: #2563eb;
-  --color-border: #d9e2ec;
-  --color-success: #15803d;
+  --color-text: #111827;
+  --color-text-muted: #64748b;
+  --color-primary: #087e59;
+  --color-primary-hover: #065f46;
+  --color-primary-soft: #e0fbee;
+  --color-on-primary: #ffffff;
+  --color-border: #e2e8f0;
+  --color-success: #087e59;
   --color-error: #b91c1c;
+  --color-error-soft: #fef2f2;
+  --color-warning: #b45309;
+  --color-warning-soft: #fef3c7;
+  --color-balance: #064e3b;
+  --color-balance-text: #ffffff;
+  --color-chart-income: #0d9165;
+  --color-chart-expense: #ef4343;
+  color-scheme: light;
 }
 
-/* Dark colours. Applied later in Phase 10 by adding data-theme="dark" to <html>. */
+/* Dark palette, ready for the theme toggle. */
 [data-theme="dark"] {
   --color-background: #111827;
   --color-surface: #1f2937;
   --color-text: #f3f4f6;
   --color-text-muted: #9ca3af;
-  --color-primary: #60a5fa;
+  --color-primary: #34d399;
+  --color-primary-hover: #6ee7b7;
+  --color-primary-soft: #143c31;
+  --color-on-primary: #06281d;
   --color-border: #374151;
   --color-success: #4ade80;
   --color-error: #f87171;
+  --color-error-soft: #442326;
+  --color-warning: #fbbf24;
+  --color-warning-soft: #3f2f0b;
+  --color-balance: #064e3b;
+  --color-balance-text: #ffffff;
+  --color-chart-income: #34d399;
+  --color-chart-expense: #f87171;
+  color-scheme: dark;
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* Elements with the hidden attribute stay hidden, even if CSS sets display */
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14px;
   background-color: var(--color-background);
   color: var(--color-text);
   line-height: 1.5;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.75rem;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+/* Forms */
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  min-height: 40px;
+  font: inherit;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  line-height: 1.4;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-on-primary);
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 0.5rem;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.button:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.button-secondary {
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.button-secondary:hover {
+  background-color: var(--color-background);
+}
+
+.button-danger {
+  color: var(--color-error);
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.button-danger:hover {
+  background-color: var(--color-error-soft);
+}
+
+.button-small {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8125rem;
+}
+
+/* Success and error messages */
+.message {
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.5rem;
+  margin: 0 0 0.75rem;
+}
+
+.message-success {
+  color: var(--color-success);
+  background-color: var(--color-primary-soft);
+}
+
+.message-error {
+  color: var(--color-error);
+  background-color: var(--color-error-soft);
+}
+
+/* Shared finishing touches */
+input::placeholder, textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; }
 }
